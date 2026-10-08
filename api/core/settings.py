@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 
+
+import pymysql
+pymysql.install_as_MySQLdb()
+
 import dj_database_url
 from decouple import config
 
