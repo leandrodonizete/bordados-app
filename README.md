@@ -163,6 +163,23 @@ Apesar de não estarem no código-fonte do repositório, as seguintes variáveis
 
 ## 🗺️ Organograma da Arquitetura
 
+
+graph TD
+    A[👤 Utilizador Final] -->|Acessa: bordados.elidsystem.com.br| B{🌐 DNS - Umbler}
+    B -->|Apontamento de Registo A| C(🖥️ Frontend React/Vite - Vercel)
+    C -->|Requisições API via HTTPS| D(⚙️ API Django 4.1.13 - Render)
+    D -->|Conexão via DATABASE_URL| E[(🗄️ MySQL 5.7 - Umbler)]
+    
+    F[[🐙 Repositório - GitHub]] -.->|Deploy Automático| C
+    F -.->|Deploy Automático| D
+
+    style A fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style B fill:#ffe6cc,stroke:#ff9900,stroke-width:2px
+    style C fill:#e6f3ff,stroke:#0066cc,stroke-width:2px
+    style D fill:#e6ffe6,stroke:#00cc00,stroke-width:2px
+    style E fill:#f2e6ff,stroke:#6600cc,stroke-width:2px
+    style F fill:#f2f2f2,stroke:#666,stroke-width:2px
+    
 Abaixo encontra-se a representação visual de como os serviços em nuvem estão conectados em produção:
 
 ```text
@@ -186,19 +203,3 @@ Abaixo encontra-se a representação visual de como os serviços em nuvem estão
 
 
 
-
-graph TD
-    A[👤 Utilizador Final] -->|Acessa: bordados.elidsystem.com.br| B{🌐 DNS - Umbler}
-    B -->|Apontamento de Registo A| C(🖥️ Frontend React/Vite - Vercel)
-    C -->|Requisições API via HTTPS| D(⚙️ API Django 4.1.13 - Render)
-    D -->|Conexão via DATABASE_URL| E[(🗄️ MySQL 5.7 - Umbler)]
-    
-    F[[🐙 Repositório - GitHub]] -.->|Deploy Automático| C
-    F -.->|Deploy Automático| D
-
-    style A fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style B fill:#ffe6cc,stroke:#ff9900,stroke-width:2px
-    style C fill:#e6f3ff,stroke:#0066cc,stroke-width:2px
-    style D fill:#e6ffe6,stroke:#00cc00,stroke-width:2px
-    style E fill:#f2e6ff,stroke:#6600cc,stroke-width:2px
-    style F fill:#f2f2f2,stroke:#666,stroke-width:2px
