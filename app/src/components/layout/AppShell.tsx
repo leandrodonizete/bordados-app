@@ -33,6 +33,7 @@ const navItems: NavItem[] = [
   { label: 'Clientes', icon: Users, path: '/clientes' },
   { label: 'Catálogo', icon: Images, path: '/catalogo' },
   { label: 'Estoque', icon: Boxes, path: '/estoque' },
+   { label: 'Usuários', icon: CircleUser, path: '/usuarios' },
 ];
 
 export function AppShell({ activePage, children }: AppShellProps) {
